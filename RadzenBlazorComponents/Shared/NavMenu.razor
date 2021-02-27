@@ -1,0 +1,30 @@
+﻿<div class="rz-sidebar">
+
+</div>
+
+<div class="rz-sidebar" @onclick="ToggleNavMenu" style="top: 51px; bottom: 0px; width: 250px;; transform: translateX(0px);">
+    <RadzenPanelMenu Style="width:300px">
+        <ul class="rz-panel-menu">
+            <li class="rz-navigation-item">
+                <RadzenPanelMenuItem Text="Home" Icon="home" Path="/" />
+            </li>
+            <li class="rz-navigation-item">
+                <RadzenPanelMenuItem Text="Counter" Icon="zoom_in" Path="counter" />
+            </li>
+            <li class="rz-navigation-item">
+                <RadzenPanelMenuItem Text="Fetch Data" Icon="zoom_out" Path="fetchdata" />
+            </li>
+        </ul>
+    </RadzenPanelMenu>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
