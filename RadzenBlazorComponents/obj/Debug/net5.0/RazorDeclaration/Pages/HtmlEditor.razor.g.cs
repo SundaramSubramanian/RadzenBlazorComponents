@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace RadzenBlazorComponents.Shared
+namespace RadzenBlazorComponents.Pages
 {
     #line hidden
     using System;
@@ -96,7 +96,8 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/HtmlEditor")]
+    public partial class HtmlEditor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,15 +105,80 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\Shared\NavMenu.razor"
+#line 26 "D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\Pages\HtmlEditor.razor"
        
-    private bool collapseNavMenu = true;
+    string value = @"
+<h1>Radzen.Blazor Getting Started Instructions</h1>
+<h2>1. Install</h2>
+<p>
+Radzen Blazor Components are distributed as the <a href=""https://www.nuget.org/packages/Radzen.Blazor/"">Radzen.Blazor</a> nuget package.
+</p>
+<p>
+You can add them to your project in one of the following ways
+</p>
+<ul>
+<li>Install the package from command line by running <code>dotnet add package Radzen.Blazor</code></li>
+<li>Add the project from the Visual Nuget Package Manager.</li>
+</ul>
+<h2>2. Import the namespace</h2>
+<p>
+Open the <code>_Imports.razor</code> file of your Blazor application and add these two lines <code>@using Radzen</code> and <code>@using Radzen.Blazor</code>.
+</p>
+<h2>3. Include a theme</h2>
+<p>
+Open the <code>_Host.cshtml</code> file (server-side Blazor) or <code>wwwroot/index.html</code> (client-side WebAssembly Blazor) and include a theme CSS file by adding this snippet
+<code>&lt;link rel=""stylesheet"" href=""_content/Radzen.Blazor/css/default-base.css""&gt;</code>
+This version requires only the Radzen Blazor CSS. Optionally you can include Bootstrap.
+</p>
+<p>
+Alternatively you can include <code>&lt;link rel=""stylesheet"" href=""_content/Radzen.Blazor/css/default.css""&gt;</code> which embeds Bootstrap.
+</p>
+<h2>4. Include Radzen.Blazor.js</h2>
+<p>
+Open the <code>_Host.cshtml</code> file (server-side Blazor) or <code>wwwroot/index.html</code> (client-side WebAssembly Blazor) and include this snippet <code>&lt;script src=""_content/Radzen.Blazor/Radzen.Blazor.js""&gt;&lt;/script&gt;</code>
+</p>
+<h2>5. Use a component</h2>
+<p>
+Use any Radzen Blazor component by typing its tag name in a Blazor page e.g. <code>&lt;RadzenButton Text=""Hi""&gt;&lt;/RadzenButton&gt;</code>
+</p>
+<h4>Setting a property</h4>
+<pre>
+<code>
+&lt;RadzenButton Text=""@text""&gt;&lt;/RadzenButton&gt;
+@code {
+string text = ""Hi"";
+}
+</code>
+</pre>
+<h4>Handing events</h4>
+<pre>
+<code>
+&lt;RadzenButton Click=""@ButtonClicked"" Text=""Hi""&gt;&lt;/RadzenButton&gt;
+@code {
+void ButtonClicked()
+{
+//
+}
+}
+</code>
+</pre>
+";
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    EventConsole console;
 
-    private void ToggleNavMenu()
+    void OnPaste(HtmlEditorPasteEventArgs args)
     {
-        collapseNavMenu = !collapseNavMenu;
+        console.Log($"Paste: {args.Html}");
+    }
+
+    void OnChange(string html)
+    {
+        console.Log($"Change: {html}");
+    }
+
+    void OnExecute(HtmlEditorExecuteEventArgs args)
+    {
+        console.Log($"Execute: {args.CommandName}");
     }
 
 #line default

@@ -636,3 +636,4 @@ D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\obj\Debug\net5.0\Radze
 D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\obj\Debug\net5.0\RadzenBlazorComponents.dll
 D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\obj\Debug\net5.0\ref\RadzenBlazorComponents.dll
 D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\obj\Debug\net5.0\RadzenBlazorComponents.pdb
+D:\Projects\RadzenBlazorComponents\RadzenBlazorComponents\obj\Debug\net5.0\RazorDeclaration\Pages\HtmlEditor.razor.g.cs
